@@ -1,8 +1,12 @@
-package com.faizan.springDemo;
+package com.faizan.day1;
 
 public class Triangle {
 	private String type;
 	private int height;
+	public Triangle() {
+		this.type="";
+		this.height=0;
+	}
 	public Triangle(String type,int height) {
 		this.type=type;
 		this.height=height;

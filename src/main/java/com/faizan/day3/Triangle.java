@@ -1,9 +1,14 @@
-package com.faizan.day2;
+package com.faizan.day3;
 
-public class Triangle {
+import org.springframework.beans.factory.BeanNameAware;
+
+
+public class Triangle implements BeanNameAware {
 	private Point pointA;
 	private Point pointB;
 	private Point pointC;
+	private String beanName;
+	
 	public Point getPointA() {
 		return pointA;
 	}
@@ -24,6 +29,10 @@ public class Triangle {
 	}
 	
 	public String toString() {
-		return ("Point : "+pointA+"\nPoint : "+pointB+"\nPoint : "+pointC+"\n");
+		return ("Bean Name : "+beanName+"\nPoint : "+pointA+"\nPoint : "+pointB+"\nPoint : "+pointC+"\n");
+	}
+	public void setBeanName(String name) {
+		this.beanName=name;
+		
 	}
 }

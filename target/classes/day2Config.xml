@@ -4,28 +4,10 @@
    xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
    xsi:schemaLocation = "http://www.springframework.org/schema/beans
    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
-	
-	<!-- Day 1 -->
-
-	<!-- CONSTRUCTOR AND SETTER INJECTION -->
-
-	<bean id="triangle" class="com.faizan.springDemo.Triangle">
-		<!-- Using Setter Injection --> 
-		<!--
-			<property name="type" value="Scalene"/> 
-			<property name="height" value="20"/> 
-		-->
-		
-		<!-- Using constructor injection  -->
-		<constructor-arg type="java.lang.String" value="Equilateral"/>
-		<constructor-arg type="int" value="20"/>
-	</bean>
-	
-	<!-- Day 2 -->
 
 	<!-- REFERENCE INITIALIZATION -->
 	
-	<bean id="triangle2" class="com.faizan.day2.Triangle">
+	<bean id="refTriangle" class="com.faizan.day2.Triangle">
 		<property name="pointA" ref="zeroPoint"/>
 		<property name="pointB" ref="point1"/>
 		<property name="pointC" ref="point2"/>
@@ -33,11 +15,11 @@
 
 	<!-- LIST INITIALIZATION USING REFERENCE -->
 
-	<bean id="triangle3" class="com.faizan.day2.TrianglePointList">
+	<bean id="listTriangle" class="com.faizan.day2.TrianglePointList">
 		<property name="points">
 			<list>
-				<ref bean="point1"/>
 				<ref bean="zeroPoint"/>
+				<ref bean="point1"/>
 				<ref bean="point2"/>
 			</list>
 		</property>
@@ -45,7 +27,7 @@
 
 	<!-- USING INNER BEAN DEFINITION -->
 
-	<bean id="triangle4" class="com.faizan.day2.Triangle">
+	<bean id="innerBeanTriangle" class="com.faizan.day2.Triangle">
 		<property name="pointA" ref="zeroPoint"/>
 		<property name="pointB">
 			<bean class="com.faizan.day2.Point">
@@ -67,18 +49,18 @@
 		<property name="x" value="0"/>
 		<property name="y" value="0"/>
 	</bean>
-	<bean id="point1" class="com.faizan.day2.Point">
+	<bean id="point1" class="com.faizan.day2.Point" scope="prototype">
 		<property name="x" value="20"/>
 		<property name="y" value="0"/>
 	</bean>
-	<bean id="point2" class="com.faizan.day2.Point">
+	<bean id="point2" class="com.faizan.day2.Point" scope="prototype">
 		<property name="x" value="0"/>
 		<property name="y" value="20"/>
 	</bean>   
 	
 	<!-- USING AUTOWIRE  -->
 	
-	<bean id="triangle5" class="com.faizan.day2.Triangle" name="autoWiredTriangle" autowire="byName">
+	<bean id="lastTriangle" class="com.faizan.day2.Triangle" name="autoWiredTriangle" autowire="byName">
 	</bean>
 	
 	<bean id="pointA" class="com.faizan.day2.Point">
