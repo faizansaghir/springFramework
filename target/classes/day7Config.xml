@@ -1,0 +1,39 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xmlns:context="http://www.springframework.org/schema/context"
+ xsi:schemaLocation="http://www.springframework.org/schema/beans 
+     http://www.springframework.org/schema/beans/spring-beans.xsd
+     http://www.springframework.org/schema/context 
+     http://www.springframework.org/schema/context/spring-context.xsd">
+		
+ 	<bean id="triangle" class="com.faizan.day7.Triangle">
+	</bean>
+	
+	<bean id="circle" class="com.faizan.day7.Circle">
+	</bean>
+	
+	<bean id="centre" class="com.faizan.day7.Point">
+		<property name="x" value="5"/>
+		<property name="y" value="5"/>
+	</bean>
+	
+	<bean id="point1" class="com.faizan.day7.Point">
+		<qualifier value="firstPoint"/>
+		<property name="x" value="100"/>
+		<property name="y" value="0"/>
+	</bean>
+	<bean id="point2" class="com.faizan.day7.Point">
+		<qualifier value="secondPoint"/>
+		<property name="x" value="1"/>
+		<property name="y" value="1"/>
+	</bean>
+	<bean id="point3" class="com.faizan.day7.Point">
+		<qualifier value="thirdPoint"/>
+		<property name="x" value="0"/>
+		<property name="y" value="100"/>
+	</bean>
+	<context:annotation-config />
+	
+</beans>
